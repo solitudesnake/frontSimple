@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
-  background-color: #efefef;
+  background-color: #000000;
 }
 
 #root {
@@ -24,27 +24,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-} 
+}
 
 .App {
   width: 100%;
-  max-width: 800px;
-  height: 100vh;
+  max-width: 1200px;
+  /*height: 100vh;*/
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid #333;
-  box-shadow: 0px 0px 15px gray;
+  /*border: 1px solid #333;*/
+  /*box-shadow: 0px 0px 15px gray;*/
 }
 
 .Header, .Footer {
   width: 100%;
-  background-color: #66d8f5;
+  background-color: #18534e;
+  color: #eeeeee;
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   align-items: center;
+  justify-content: center;
 }
 
 .Header h1 {
@@ -53,6 +55,10 @@ body {
 
 .Header svg {
   font-size: 2rem;
+}
+
+.Header img{
+  width: 90px;
 }
 
 .Footer {
@@ -102,7 +108,7 @@ body {
   padding: 1rem;
 }
 
-.Nav li:hover, 
+.Nav li:hover,
 .Nav li:focus {
   padding: 1rem;
 }
@@ -112,26 +118,58 @@ body {
   text-decoration: none;
 }
 
-.Nav li:hover, 
-.Nav li:focus, 
-.Nav li:hover a, 
+.Nav li:hover,
+.Nav li:focus,
+.Nav li:hover a,
 .Nav li:focus a  {
   background-color: #eee;
   color: #333;
 }
 
-.Nav li:hover a, 
+.Nav li:hover a,
 .Nav li:focus a {
   cursor: pointer;
 }
 
-.Home, .NewPost, .PostPage, .About, .Missing {
+.rowC, .creationBox{
+  display:flex;
+  flex-direction:row;
+  font-size: 0.7em;
+  width: 100%;
+}
+
+.Home, .CustomSoldier, .SoldierBox, .About, .Missing, .RandomSoldier {
   width: 100%;
   flex-grow: 1;
   padding: 1rem;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: #051d1a;
+  color: white;
+  min-height: 300px;
 }
+
+.creationBox, .showRoom{
+  width: 100%;
+}
+.soldierName{
+  text-transform: uppercase;
+  background-color: #c5c273;
+  color: black;
+  padding: 6px 8px 6px 15px;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 79%;
+}
+.soldierDescription{
+  background-color: #b5e3af;
+  width: 79%;
+  padding: 6px 8px 6px 15px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  font-size: 11px;
+  color: black;
+ }
 
 .post {
   margin-top: 1rem;
@@ -143,7 +181,7 @@ body {
   text-decoration: none;
 }
 
-.Home .post a, 
+.Home .post a,
 .Home .post a:visited {
   color: #000;
 }
@@ -165,46 +203,54 @@ body {
   margin: 1rem 0;
 }
 
-.newPostForm {
+.CustomSoldierForm {
   display: flex;
   flex-direction: column;
 }
 
-.newPostForm label {
+.CustomSoldierForm label {
   margin-top: 1rem;
 }
 
-.newPostForm input[type='text'], 
-.newPostForm textarea {
+.CustomSoldierForm input[type='text'],
+.CustomSoldierForm textarea {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
-  min-height: 48px;
-  font-size: 1rem;
+  min-height: 30px;
+  font-size: 0.7rem;
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-right: 0.25rem;
   outline: none;
+  border: 0;
 }
 
-.newPostForm textarea {
+.CustomSoldierForm textarea {
   height: 100px;
 }
 
-.newPostForm button {
+.CustomSoldierForm button {
   margin-top: 1rem;
-  height: 48px;
+  height: 30px;
   min-width: 48px;
   border-radius: 10px;
-  padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.7rem;
   cursor: pointer;
+  font-weight: bold;
+  background-color: #3a7052;
+  color: white;
+  border:0px;
+}
+.CustomSoldierForm button hover{
+  opacity: 0.6;
 }
 
-.Missing p, .PostPage p, .NewPost p {
+
+.Missing p, .SoldierBox p, .CustomSoldier p {
   margin-top: 1rem;
 }
 
-.PostPage button {
+.SoldierBox button {
   height: 48px;
   min-width: 48px;
   border-radius: 0.25rem;
@@ -216,11 +262,29 @@ body {
 }
 
 .deleteButton {
-  background-color: red;
+  background-color: #61050f;
+  padding: 4px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  border-color: #42050c;
+  font-size: 10px;
 }
 
 .editButton {
-  background-color: #333;
+  background-color: #61050f;
+  padding: 4px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  border-color: #42050c;
+  font-size: 10px;
+}
+
+.squareImage{
+  width:20%;
 }
 
 .statusMsg {
@@ -247,9 +311,9 @@ body {
     text-align: right;
   }
 
-  .Nav li:hover, 
-  .Nav li:focus, 
-  .Nav li:hover a, 
+  .Nav li:hover,
+  .Nav li:focus,
+  .Nav li:hover a,
   .Nav li:focus a  {
     background-color: #eee;
     color: #333;
@@ -259,12 +323,12 @@ body {
     width: 50%;
     padding: .5rem 0;
   }
- 
+
   .searchForm input[type="text"] {
     margin-left: 0.5rem;
   }
 
-  .newPostForm textarea {
+  .CustomSoldierForm textarea {
     height: 300px;
   }
 }

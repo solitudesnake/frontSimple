@@ -1,17 +1,29 @@
 import { Link } from 'react-router-dom';
 
-const Post = ({ post }) => {
+const Post = ({ soldier, handleDelete }) => {
     return (
         <article className="post">
-            <Link to={`/post/${post.id}`}>
-                <h2>{post.title}</h2>
-                <p className="postDate">{post.datetime}</p>
-            </Link>
-            <p className="postBody">{
-                (post.body).length <= 25
-                    ? post.body
-                    : `${(post.body).slice(0, 25)}...`
-            }</p>
+            <article className="soldier">
+                <p className="soldierName">{soldier.name +' '+soldier.animal}</p>
+                <p className="soldierDescription">{soldier.description}</p>
+                {soldier.images.length ?
+                    (<>
+                    {soldier.images.map((image,key) => (
+                        <img key={key} className="squareImage" src={image}/>
+                    ))}
+                </>) :
+                (<>
+                    <div className="soldierDescription">
+                        <h2>Images Not Found</h2>
+                        <p>Well, that's disappointing.</p>
+                        <button className="editButton">Retrieve images</button>
+                    </div>
+                </>)
+                }
+                <button className="deleteButton" onClick={() => handleDelete(soldier._id)}>
+                    Delete Soldier File
+                </button>
+            </article>
         </article>
     )
 }

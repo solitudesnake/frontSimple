@@ -1,10 +1,10 @@
 import Post from './Post';
 
-const Feed = ({ posts }) => {
+const Feed = ({ soldiers,handleDelete }) => {
     return (
         <>
-            {posts.map(post => (
-                <Post key={post.id} post={post} />
+            {soldiers.map(soldier => (
+                <Post key={soldier._id} soldier={soldier} handleDelete={handleDelete} />
             ))}
         </>
     )

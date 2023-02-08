@@ -1,13 +1,14 @@
 import Feed from './Feed';
 
-const Home = ({ posts }) => {
+const Home = ({ soldiers , handleDelete }) => {
+
     return (
         <main className="Home">
-            {posts.length ? (
-                <Feed posts={posts} />
+            {soldiers.length ? (
+                <Feed soldiers={soldiers} handleDelete={handleDelete} />
             ) : (
                 <p style={{ marginTop: "2rem" }}>
-                    No posts to display.
+                    No soldiers to display.
                 </p>
             )}
         </main>
