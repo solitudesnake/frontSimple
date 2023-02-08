@@ -1,11 +1,14 @@
+import LoadingSpinner from "./LoadingSpinner"
+
 const CustomSoldier = ({
- handleSubmitCustom, handleSubmitRandom, soldierName,  soldierAnimal, setSoldierName,setSoldierAnimal
+ handleSubmitCustom, handleSubmitRandom, isLoading, soldierName,  soldierAnimal, setSoldierName,setSoldierAnimal
 }) => {
     return (
         <main className="CustomSoldier">
             <form className="CustomSoldierForm" onSubmit={handleSubmitCustom}>
                 <label htmlFor="postTitle">Name:</label>
                 <input
+                    disabled={isLoading}
                     id="soldierName"
                     type="text"
                     required
@@ -14,6 +17,7 @@ const CustomSoldier = ({
                 />
                 <label htmlFor="postBody">Code name:</label>
                 <input
+                    disabled={isLoading}
                     id="soldierAnimal"
                     type="text"
                     required
@@ -21,12 +25,24 @@ const CustomSoldier = ({
                     placeholder="Usually an animal"
                     onChange={(e) => setSoldierAnimal(e.target.value)}
                 />
-                <button type="submit">Generate New Soldier</button>
+                <button
+                    className={isLoading ? "opacityButton" : null}
+                    disabled={isLoading} type="submit"
+                >
+                    Generate New Soldier
+                </button>
             </form>
 
             <form className="CustomSoldierForm" onSubmit={handleSubmitRandom}>
-                <button type="submit">Generate Random</button>
+                <button
+                    className={isLoading ? "opacityButton" : null}
+                    disabled={isLoading}
+                    type="submit"
+                >
+                    Generate Random
+                </button>
             </form>
+            {isLoading ? <LoadingSpinner /> : <p></p>}
         </main>
     )
 }

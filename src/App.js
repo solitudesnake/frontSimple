@@ -10,8 +10,7 @@ function App() {
   const [soldiers, setSoldiers] = useState([])
   const [soldierName, setSoldierName] = useState('');
   const [soldierAnimal, setSoldierAnimal] = useState('');
-  const [editTitle, setEditTitle] = useState('');
-  const [editBody, setEditBody] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   // const history = useHistory();
 
   useEffect(() => {
@@ -41,11 +40,13 @@ function App() {
     const CustomSoldier = {
       name: soldierName, animal: soldierAnimal };
     try {
+      setIsLoading(true)
       const response = await api.post('/createCustom', CustomSoldier);
       const allPosts = [response.data.soldier, ...soldiers ];
       setSoldiers(allPosts);
       setSoldierName('');
       setSoldierAnimal('');
+      setIsLoading(false)
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -54,9 +55,11 @@ function App() {
   const handleSubmitRandom = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       const response = await api.post('/createRandom');
       const allPosts = [response.data.soldier, ...soldiers ];
       setSoldiers(allPosts);
+      setIsLoading(false)
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -91,6 +94,7 @@ function App() {
             <CustomSoldier
               handleSubmitCustom={handleSubmitCustom}
               handleSubmitRandom={handleSubmitRandom}
+              isLoading={isLoading}
               soldierName={soldierName}
               setSoldierName={setSoldierName}
               soldierAnimal={soldierAnimal}

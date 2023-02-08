@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 const Post = ({ soldier, handleDelete, handleEdit }) => {
     // console.log("soldier.description",soldier.description)
     return (

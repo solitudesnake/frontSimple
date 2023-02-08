@@ -158,11 +158,9 @@ body {
   padding: 6px 8px 6px 15px;
   font-weight: bold;
   border-radius: 4px;
-  width: 79%;
 }
 .soldierDescription{
   background-color: #b5e3af;
-  width: 79%;
   padding: 6px 8px 6px 15px;
   border-radius: 6px;
   margin-bottom: 6px;
@@ -225,7 +223,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   min-height: 30px;
-  font-size: 0.7rem;
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-right: 0.25rem;
@@ -242,15 +239,20 @@ body {
   height: 30px;
   min-width: 48px;
   border-radius: 10px;
-  font-size: 0.7rem;
   cursor: pointer;
   font-weight: bold;
   background-color: #3a7052;
   color: white;
   border:0px;
 }
-.CustomSoldierForm button hover{
+.CustomSoldierForm button:hover{
+  background-color: #71b58f;
+}
+
+.opacityButton{
   opacity: 0.6;
+  cursor: initial !important;
+  background-color: #3a7052 !important;
 }
 
 
@@ -299,6 +301,48 @@ body {
   margin-top: 2rem;
 }
 
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container{
+  padding-top: 17px;
+  margin: auto;
+  width: 9%;
+}
+
+
+.creationBox button {
+  font-size: 1.1em;
+}
+.creationBox input {
+  font-size: 1.1em;
+}
+.creationBox {
+  flex: 0 0 135px;
+  /*font-size: 9px;*/
+}
+.showRoom{
+  flex: 1;
+}
+.soldier img {
+  min-width: 185px;
+}
+
+
 @media only screen and (min-width: 610px) {
   html {
     font-size: 22px;
@@ -339,6 +383,15 @@ body {
   .CustomSoldierForm textarea {
     height: 300px;
   }
+  .creationBox{
+    flex: 0 0 200px;
+  }
+  .creationBox button {
+    font-size: 1.2em;
+  }
+  .creationBox input {
+    font-size: 1.2em;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -346,5 +399,13 @@ body {
   .Header svg {
     font-size: 3rem;
   }
-
+  .creationBox{
+    flex: 0 0 300px;
+  }
+  .creationBox button {
+    font-size: 1.2em;
+  }
+  .creationBox input {
+    font-size: 1.2em;
+  }
 }
