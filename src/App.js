@@ -63,13 +63,11 @@ function App() {
   }
 
   const handleEdit = async (id) => {
-    const datetime = format(new Date(), 'MMMM dd, yyyy pp');
-    const updatedPost = { id, title: editTitle, datetime, body: editBody };
     try {
-      const response = await api.put(`/soldiers/${id}`, updatedPost);
-      setSoldiers(soldiers.map(post => post.id === id ? { ...response.data } : post));
-      setEditTitle('');
-      setEditBody('');
+      const soldierObj = soldiers.filter(soldier => soldier._id===id)
+      const response = await api.patch(`/update/${id}`, soldierObj[0]);
+      setSoldiers(soldiers.map(soldier => soldier._id === id ? response.data.newSoldier : soldier));
+
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -100,7 +98,7 @@ function App() {
             />
         </div>
         <div className="showRoom">
-          <Home soldiers={soldiers} handleDelete={handleDelete}  />
+          <Home soldiers={soldiers} handleDelete={handleDelete} handleEdit={handleEdit} />
 
         </div>
       </div>

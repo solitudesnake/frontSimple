@@ -167,9 +167,17 @@ body {
   border-radius: 6px;
   margin-bottom: 6px;
   margin-top: 6px;
-  font-size: 11px;
+  font-size: 13px;
   color: black;
  }
+
+.soldierDescription p {
+  font-family: Roboto;
+  margin-bottom: 5px;
+}
+.soldierDescription p::first-letter {
+  font-weight: bolder;
+}
 
 .post {
   margin-top: 1rem;
