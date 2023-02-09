@@ -145,7 +145,7 @@ body {
   overflow-y: auto;
   background-color: #051d1a;
   color: white;
-  min-height: 300px;
+  min-height: 350px;
 }
 
 .creationBox, .showRoom{
